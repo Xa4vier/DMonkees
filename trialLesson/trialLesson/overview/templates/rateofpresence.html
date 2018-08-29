@@ -1,0 +1,60 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Overview</h1>
+
+<div class="bumb"></div>
+<h3>Rate of presence</h3>
+
+<table>
+  <thead>
+    <th>Day's</th>
+    <th>Percentage</th>
+    <th>Afanem absoluut</th>
+    <th>Afname %</th>
+    <th>Aantal</th>
+    <th>Totaal</th>
+  </thead>
+  <tbody id="myTable">
+    {% for row in rate_of_presence %}
+    <tr>
+      <td>{{ row.week }}</td>
+      <td>{{ row.percentage|floatformat:2 }}</td>
+      <td>{{ row.minusA|floatformat:2 }}</td>
+      <td>{{ row.minusP|floatformat:2 }}%</td>
+      <td>{{ row.aantal }}</td>
+      <td>{{ row.aantal_mensen_totaal }}</td>
+    </tr>   
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<div class="bumb"></div>
+<h3>Rate of Membership</h3>
+
+<table>
+  <thead>
+    <th>Day's</th>
+    <th>Percentage</th>
+    <th>Afanem absoluut</th>
+    <th>Afname %</th>
+    <th>Aantal</th>
+    <th>Totaal</th>
+  </thead>
+  <tbody id="myTable">
+    {% for row in rate_of_membership %}
+    <tr>
+      <td>{{ row.week }}</td>
+      <td>{{ row.percentage|floatformat:2 }}</td>
+      <td>{{ row.minusA|floatformat:2 }}</td>
+      <td>{{ row.minusP|floatformat:2 }}%</td>
+      <td>{{ row.aantal }}</td>
+      <td>{{ row.aantal_mensen_totaal }}</td>
+    </tr>   
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

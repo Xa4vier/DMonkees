@@ -152,8 +152,7 @@ def calculate(dataset):
     # step 3
     # calculate the days between the request and the show-up date
     for row in dataset:
-        days = date(int(row['dateTrialLesson'][0:4]), int(row['dateTrialLesson'][5:7]), int(row['dateTrialLesson'][8:10])) - 
-        date(int(row['dateRequestedTrialLesson'][0:4]), int(row['dateRequestedTrialLesson'][5:7]), int(row['dateRequestedTrialLesson'][8:10])) #showup - request
+        days = date(int(row['dateTrialLesson'][0:4]), int(row['dateTrialLesson'][5:7]), int(row['dateTrialLesson'][8:10])) - date(int(row['dateRequestedTrialLesson'][0:4]), int(row['dateRequestedTrialLesson'][5:7]), int(row['dateRequestedTrialLesson'][8:10])) #showup - request
         row['verschil'] = days.days 
         
     # step 4
