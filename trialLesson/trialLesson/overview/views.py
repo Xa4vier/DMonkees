@@ -12,14 +12,12 @@ def index(request):
 		login_form = loginForm(request.POST)
 
 		if login_form.is_valid():
-			email =  login_form.cleaned_data['email']
+			email =  login_form.cleaned_data['username']
 			password = login_form.cleaned_data['password']
 
-			context = {'email' : email, 'password' : password}
-			return render(request, 'index.html', context = context)
+			return render(request, 'rateofpresence.html')
 
-	context = {'email' : 'test', 'password' : 'test'}
-	return render(request, 'index.html', context = context)
+	return render(request, 'index.html')
 
 def rateofpresence(request):
 	context = calculate(rest_request.get_trialLessons(rest_request.get_token(), date(2017, 4, 2), date(2018, 7, 24)))
