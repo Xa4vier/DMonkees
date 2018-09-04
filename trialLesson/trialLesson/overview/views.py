@@ -6,7 +6,7 @@ from rest_request import get_token, get_trialLessons
 from trialLesson.forms import loginForm
 from login import authenticator
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import time
 
 
@@ -46,6 +46,7 @@ def rateofpresence(request):
 	return render(request, 'rateofpresence.html', context=context)
 
 def logout(request):
+	logout(request)
 	del request.session['token']
 
 	return render(request, 'index.html', context = {'message' : 'logged out'})
