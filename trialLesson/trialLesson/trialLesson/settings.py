@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'overview.apps.OverviewConfig',
     'rate_calculator',
     'rest_request',
-    'customUser'
 ]
 
 MIDDLEWARE = [
