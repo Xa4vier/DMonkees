@@ -9,14 +9,14 @@ Created on Wed Aug 22 00:35:02 2018
 import requests
 import requests.auth
 
-def get_token():
+def get_token(username, password):
 	post_data = {"grant_type": "password",
-				 "username": 'Xavier',
-				 "password": 'Xavier3153'}
+				 "username": username,
+				 "password": password}
 	response = requests.post("https://defensemonkees.nl/api/token",
 							 data=post_data)
 	token_json = response.json()
-	return token_json["access_token"]
+	return token_json
 
 def get_trialLessons(access_token, startTime, endTime):
     headers = {"Authorization": "bearer " + access_token}

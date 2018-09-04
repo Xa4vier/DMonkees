@@ -22,12 +22,11 @@
 				</button>
 				<div class="collapse navbar-collapse " id="collapsibleNavbar">
 					<ul class="navbar-nav ml-auto ">
-						<li class="nav-item">
-							<a class="nav-link" href="#offer"><b>Login</b></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#"><b>Logoff</b></a>
-						</li> 
+							{% if user.is_authenticated %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'logout' %}"><b>Logoff</b></a>
+							</li>
+							{% endif %}
 					</ul>
 				</div>  
 			</nav>
