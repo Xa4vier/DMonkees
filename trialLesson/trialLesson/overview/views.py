@@ -5,6 +5,11 @@ from django.http import HttpResponse
 from rest_request import get_token, get_trialLessons
 from trialLesson.forms import loginForm
 from login import authenticator
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+import time
+
+
 
 # Create your views here.
 def index(request):
@@ -12,6 +17,7 @@ def index(request):
 	# check if request is post
 	if request.method == 'POST':
 		login_form = loginForm(request.POST) #bind to form
+		time.sleep(1)
 
 		if login_form.is_valid(): 
 			username =  login_form.cleaned_data['username'] # get username
@@ -21,6 +27,8 @@ def index(request):
 			if 'error' in token:
 				 return render(request, 'index.html', {'message' : 'error with logging in'})
 			else :
+				user = authenticate(request, username=username, password=password)
+				login(request, user)
 				request.session['token'] = token['access_token']
 				return render(request, 'rateofpresence.html')
 		else:
