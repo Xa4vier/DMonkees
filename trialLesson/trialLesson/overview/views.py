@@ -7,7 +7,7 @@ from trialLesson.forms import loginForm
 from login import authenticator
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import HttpResponseRedirect
+from django.shortcuts import HttpResponseRedirect, redirect
 import time
 
 
@@ -48,5 +48,6 @@ def rateofpresence(request):
 
 def logoutv(request):
 	logout(request)
+	return redirect('/')
 	return HttpResponseRedirect('/overview/')
 	
